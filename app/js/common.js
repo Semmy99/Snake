@@ -6,6 +6,16 @@ let snake_wrap = document.querySelector('.snake_wrap'),
 	posHoriz = 0,
 	posVert = 0;
 
+let someElem = document.createElement('div');
+someElem.style.width = '20px';
+someElem.style.height = '20px';
+someElem.style.backgroundColor = '#000';
+someElem.style.position = 'absolute';
+someElem.style.left = '350px';
+someElem.style.top = '150px';
+
+
+wall_wrap.appendChild(someElem);
 
 document.onkeyup = function (e) {
 	let rectSnake = snake_wrap.getBoundingClientRect(),
@@ -50,5 +60,12 @@ document.onkeyup = function (e) {
 			}
 			break;
 	}
+	console.log(rectSnake.left)
+	console.log(someElem.getBoundingClientRect().right)
+
+	if(rectSnake.left - rectWall.left > someElem.getBoundingClientRect().right - rectWall.left) {
+		
+	}
 }
+
 
