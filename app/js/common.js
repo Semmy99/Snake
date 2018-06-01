@@ -2,6 +2,7 @@ console.clear();
 
 let snake_wrap = document.querySelector('.snake_wrap'),
 	wall_wrap = document.querySelector('.wall_wrap'),
+	btn_snake = document.querySelector('.btn_snake'),
 	step = 20,
 	posHoriz = 0,
 	posVert = 0;
@@ -16,6 +17,22 @@ someElem.style.top = '100px';
 
 
 wall_wrap.appendChild(someElem);
+
+// При клике на кнопку запуска опускаемся вниз и убираем скролл
+
+btn_snake.onclick = function () {
+	var scrollHeight = Math.max(
+		document.body.scrollHeight, document.documentElement.scrollHeight,
+		document.body.offsetHeight, document.documentElement.offsetHeight,
+		document.body.clientHeight, document.documentElement.clientHeight
+	);
+
+	let posWin = scrollHeight - document.documentElement.clientHeight
+	scrollBy(0, posWin);
+
+	document.body.style.overflow = "hidden"
+}
+// Управление змейкой через стрелки
 
 document.onkeydown = function (e) {
 	let rectSnake = snake_wrap.getBoundingClientRect(),
